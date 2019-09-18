@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dc-year</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/sideslide.css">
+    <link rel="stylesheet" href="../css/dc-year.css">
 </head>
 
 <body>
     <div class="nav">
         <ul>
             <img src="../img/logo.png" alt="cauc">
-            <li><a href="#">首页&nbsp;</a></li>
+            <li class="active"><a href="#">首页&nbsp;</a></li>
             <li><a href="#">基地概况</a></li>
             <li><a href="#">历年大创项目&nbsp;&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                 <ul class="li-3">
@@ -31,7 +32,34 @@
     </div>
 
     <!--左侧菜单开始-->
-    
+    <div class="left-nav">
+        <ul>
+            <li class="li1">专业导航</li>
+            <li><a href="#">交通工程</a></li>
+            <li><a href="#">油气储运工程</a></li>
+            <li><a href="#">土木工程</a></li>
+            <li><a href="#">其它专业</a></li>
+        </ul>
+        <div class="search">
+            <h2>作品搜索</h2>
+            <div>
+                <p>关键字：</p>
+                <input type="text" class="input">
+            </div>
+            <div>
+                <p>搜索方式：</p>
+                <select name="select" id="slect">
+                    <option value="标题">标题</option>
+                    <option value="内容">内容</option>
+                    <option value="作者">作者</option>
+                </select>
+
+            </div>
+            <div>
+                <button>搜索</button>
+            </div>
+        </div>
+    </div>
 
 
     <!--左侧菜单结束-->

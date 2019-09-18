@@ -29,8 +29,9 @@
   color: #fff;
   background: rgba(238, 82, 83, 1);
   animation: changeColor 2s infinite;
-  animation-delay: 3s;
+  animation-delay: 0.3s;
 }
+
 
 @keyframes changeColor {
   0% {
