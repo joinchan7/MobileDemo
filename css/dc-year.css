@@ -1,3 +1,8 @@
+.left-nav{
+  width: 400px;
+  position: absolute;
+}
+
 .left-nav ul {
   margin: 150px 0 0 140px;
   list-style: none;
@@ -81,4 +86,12 @@
 }
 .left-nav .search div{
     margin: 20px 0;
+}
+#box{
+  position: relative;
+  top: 200px;
+  left: 500px;
+  height: 200px;
+  width: 200px;
+  background: #bfa;
 }

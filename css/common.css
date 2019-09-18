@@ -32,7 +32,6 @@
   animation-delay: 0.3s;
 }
 
-
 @keyframes changeColor {
   0% {
     background: #1d84b5;
@@ -92,22 +91,23 @@
 }
 
 .banner {
-  width: 1200px;
+  width: 800px;
   height: 460px;
   overflow: hidden;
-  margin: 30px auto 0 auto;
+  margin: 0 155px 50px 0;
   position: relative;
+  float: right;
 }
 
 .banner-box {
-  width: 1200px;
+  width: 800px;
   height: 460px;
   overflow: hidden;
   position: relative;
 }
 
 .banner-slide {
-  width: 1200px;
+  width: 800px;
   height: 460px;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -116,15 +116,18 @@
 }
 
 .slide1 {
-  background: url(../img/1.jpg);
+  background: url(../img/1.jpg) no-repeat;
+  background-size: cover;
 }
 
 .slide2 {
-  background: url(../img/2.jpg);
+  background: url(../img/2.jpg) no-repeat;
+  background-size: cover;
 }
 
 .slide3 {
-  background: url(../img/3.jpg);
+  background: url(../img/3.jpg) no-repeat;
+  background-size: cover;
 }
 
 .slide-active {
@@ -261,3 +264,33 @@
   float: right;
   line-height: 30px;
 }
+/* 新闻 */
+.news {
+  height: 460px;
+  width: 350px;
+  margin: 30px 0 0 160px;
+}
+.news li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+}
+.news .head a {
+  color: #2870c8;
+  color: 333;
+  font-size: 22px;
+  font-weight: bold;
+}
+.news .head {
+  line-height: 26px;
+  border-bottom: solid 2px #2870c8;
+  padding-bottom: 8px;
+}
+.news a {
+  text-decoration: none;
+  color: black;
+}
+
