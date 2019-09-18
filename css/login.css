@@ -1,68 +1,69 @@
 * {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .login-container {
-  height: 600px;
-  width: 100%;
-  padding-top: 90px;
-  background: url(../img/login.png);
-  position: relative;
+    height: 600px;
+    width: 100%;
+    padding-top: 90px;
+    background: url(../img/login.png);
+    position: relative;
 }
 
 .login-container .login-main {
-  width: 380px;
-  height: 380px;
-  background: #fff;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 5px;
+    width: 380px;
+    height: 380px;
+    background: #fff;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
 }
 
 .login-container .login-main input {
-  width: 320px;
-  height: 50px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding-left: 15px;
-  box-sizing: border-box;
-  font-size: 16px;
-  margin: 60px 30px 10px 30px;
+    width: 320px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin: 60px 30px 10px 30px;
 }
 
 .login-container .login-main #passwd {
-  margin: 20px 30px 10px 30px;
+    margin: 20px 30px 10px 30px;
 }
 
 .log-in {
-  margin: 22px 30px 5px 30px;
-  width: 320px;
-  height: 40px;
-  text-align: center;
-  border-radius: 5px;
-  background-color: #569ae9;
-  font-size: 14px;
-  color: #fff;
-  line-height: 40px;
-  cursor: pointer;
+    margin: 22px 30px 5px 30px;
+    width: 320px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #569ae9;
+    font-size: 14px;
+    color: #fff;
+    line-height: 40px;
+    cursor: pointer;
 }
-.log-in:hover, .sign-up:hover{
-  color: black;
+.log-in:hover,
+.sign-up:hover {
+    color: black;
 }
-.sign-up{
-  margin: 22px 30px 5px 30px;
-  width: 320px;
-  height: 40px;
-  text-align: center;
-  border-radius: 5px;
-  background-color: #b6b9bd;
-  font-size: 14px;
-  color: #1173e2;
-  line-height: 40px;
-  cursor: pointer;
+.sign-up {
+    margin: 22px 30px 5px 30px;
+    width: 320px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #b6b9bd;
+    font-size: 14px;
+    color: #1173e2;
+    line-height: 40px;
+    cursor: pointer;
 }

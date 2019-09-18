@@ -1,97 +1,97 @@
-.left-nav{
-  width: 400px;
-  position: absolute;
+.left-nav {
+    width: 400px;
+    position: absolute;
 }
 
 .left-nav ul {
-  margin: 150px 0 0 140px;
-  list-style: none;
+    margin: 150px 0 0 140px;
+    list-style: none;
 }
 
 .left-nav ul li {
-  width: 150px;
-  height: 50px;
-  background: rgb(82, 202, 238);
-  border: 5px solid white;
-  border-radius: 50px;
-  font-size: 14px;
+    width: 150px;
+    height: 50px;
+    background: rgb(82, 202, 238);
+    border: 5px solid white;
+    border-radius: 50px;
+    font-size: 14px;
 }
 .left-nav ul .li1 {
-  font-weight: bold;
-  font-size: 14px;
-  text-align: center;
-  line-height: 50px;
-  background: #333;
-  border-radius: 50px;
-  color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    line-height: 50px;
+    background: #333;
+    border-radius: 50px;
+    color: #fff;
 }
 .left-nav ul li a {
-  text-decoration: none;
-  color: black;
-  display: block;
-  text-align: center;
-  line-height: 50px;
+    text-decoration: none;
+    color: black;
+    display: block;
+    text-align: center;
+    line-height: 50px;
 }
 
 .left-nav ul li:hover {
-  color: #fff;
-  background: #00cecb;
-  animation: changeColor 2s infinite;
-  animation-delay: 0.3s;
+    color: #fff;
+    background: #00cecb;
+    animation: changeColor 2s infinite;
+    animation-delay: 0.3s;
 }
 
 @keyframes changeColor {
-  0% {
-    background: #1d84b5;
-  }
+    0% {
+        background: #1d84b5;
+    }
 
-  50% {
-    background: #00cecb;
-  }
+    50% {
+        background: #00cecb;
+    }
 
-  100% {
-    background: #1d84b5;
-  }
+    100% {
+        background: #1d84b5;
+    }
 }
 
-.left-nav .search{
+.left-nav .search {
     background: rgb(170, 204, 255);
     width: 200px;
     margin: 20px 0 0 90px;
     padding: 20px;
     text-align: center;
-    border-radius: 15px; 
+    border-radius: 15px;
 }
-.left-nav .search h2{
+.left-nav .search h2 {
     font-size: 18px;
 }
-.left-nav .search p{
+.left-nav .search p {
     float: left;
     font-size: 15px;
 }
-.left-nav .search select{
+.left-nav .search select {
     width: 88px;
     height: 25px;
     line-height: 25px;
 }
-.left-nav .search button{
+.left-nav .search button {
     width: 150px;
     height: 30px;
     cursor: pointer;
 }
-.left-nav .search input{
+.left-nav .search input {
     width: 100px;
     height: 20px;
     line-height: 25px;
 }
-.left-nav .search div{
+.left-nav .search div {
     margin: 20px 0;
 }
-#box{
-  position: relative;
-  top: 200px;
-  left: 500px;
-  height: 200px;
-  width: 200px;
-  background: #bfa;
+#box {
+    position: relative;
+    top: 200px;
+    left: 500px;
+    height: 200px;
+    width: 200px;
+    background: #bfa;
 }

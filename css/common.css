@@ -1,296 +1,295 @@
 /* nav */
 .nav {
-  width: 100%;
-  height: 80px;
-  background: #333;
-  box-shadow: 0 -2px 2px #000;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
+    width: 100%;
+    height: 80px;
+    background: #333;
+    box-shadow: 0 -2px 2px #000;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
 }
 
 .nav ul {
-  list-style: none;
+    list-style: none;
 }
 
 .nav ul li {
-  float: left;
-  width: 150px;
-  height: 80px;
-  background: #222;
-  margin-right: 1px;
-  font-size: 14px;
+    float: left;
+    width: 150px;
+    height: 80px;
+    background: #222;
+    margin-right: 1px;
+    font-size: 14px;
 }
 
 .nav ul li:hover {
-  color: #fff;
-  background: rgba(238, 82, 83, 1);
-  animation: changeColor 2s infinite;
-  animation-delay: 0.3s;
+    color: #fff;
+    background: rgba(238, 82, 83, 1);
+    animation: changeColor 2s infinite;
+    animation-delay: 0.3s;
 }
 
 @keyframes changeColor {
-  0% {
-    background: #1d84b5;
-  }
+    0% {
+        background: #1d84b5;
+    }
 
-  50% {
-    background: #00cecb;
-  }
+    50% {
+        background: #00cecb;
+    }
 
-  100% {
-    background: #1d84b5;
-  }
+    100% {
+        background: #1d84b5;
+    }
 }
 
 .nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  display: block;
-  text-align: center;
-  line-height: 80px;
-  font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
 }
 
 .nav ul li ul li {
-  display: none;
-  height: 40px;
-  width: 150px;
+    display: none;
+    height: 40px;
+    width: 150px;
 
-  /*float: initial;*/
-  background: rgba(1, 163, 164, 1);
-  transition: 0.3s;
+    /*float: initial;*/
+    background: rgba(1, 163, 164, 1);
+    transition: 0.3s;
 }
 .nav ul li ul li a {
-  line-height: 40px;
+    line-height: 40px;
 }
 .nav ul li:hover ul li {
-  display: block;
-  border-top: 1px solid rgba(72, 219, 251, 0.5);
-  z-index: 999;
+    display: block;
+    border-top: 1px solid rgba(72, 219, 251, 0.5);
+    z-index: 999;
 }
 
 .nav ul img {
-  float: left;
-  width: 200px;
-  height: 50px;
-  margin: 15px 80px 5px 100px;
+    float: left;
+    width: 200px;
+    height: 50px;
+    margin: 15px 80px 5px 100px;
 }
 
 .nav i {
-  color: #fff;
+    color: #fff;
 }
 
 /* banner */
 .main {
-  position: relative;
-  top: 88px;
+    position: relative;
+    top: 88px;
 }
 
 .banner {
-  width: 800px;
-  height: 460px;
-  overflow: hidden;
-  margin: 0 155px 50px 0;
-  position: relative;
-  float: right;
+    width: 800px;
+    height: 460px;
+    overflow: hidden;
+    margin: 0 155px 50px 0;
+    position: relative;
+    float: right;
 }
 
 .banner-box {
-  width: 800px;
-  height: 460px;
-  overflow: hidden;
-  position: relative;
+    width: 800px;
+    height: 460px;
+    overflow: hidden;
+    position: relative;
 }
 
 .banner-slide {
-  width: 800px;
-  height: 460px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  position: absolute;
-  display: none;
+    width: 800px;
+    height: 460px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: absolute;
+    display: none;
 }
 
 .slide1 {
-  background: url(../img/1.jpg) no-repeat;
-  background-size: cover;
+    background: url(../img/1.jpg) no-repeat;
+    background-size: cover;
 }
 
 .slide2 {
-  background: url(../img/2.jpg) no-repeat;
-  background-size: cover;
+    background: url(../img/2.jpg) no-repeat;
+    background-size: cover;
 }
 
 .slide3 {
-  background: url(../img/3.jpg) no-repeat;
-  background-size: cover;
+    background: url(../img/3.jpg) no-repeat;
+    background-size: cover;
 }
 
 .slide-active {
-  display: block;
+    display: block;
 }
 
 .button {
-  position: absolute;
-  width: 40px;
-  height: 80px;
-  left: 0px;
-  top: 50%;
-  margin-top: -40px;
-  background: url(../img/arrow.png) no-repeat center;
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    left: 0px;
+    top: 50%;
+    margin-top: -40px;
+    background: url(../img/arrow.png) no-repeat center;
 }
 
 .button:hover {
-  background-color: #333;
-  opacity: 0.6;
-  filter: alpha(opacity=60);
+    background-color: #333;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
 }
 
 .prev {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .next {
-  left: auto;
-  right: 0;
+    left: auto;
+    right: 0;
 }
 
 .dots {
-  position: absolute;
-  right: 20px;
-  bottom: 24px;
-  text-align: center;
+    position: absolute;
+    right: 20px;
+    bottom: 24px;
+    text-align: center;
 }
 
 .dots span {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  line-height: 12px;
-  border-radius: 50%;
-  background: rgba(7, 17, 27, 0.4);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8) inset;
-  margin-right: 8px;
-  cursor: pointer;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    border-radius: 50%;
+    background: rgba(7, 17, 27, 0.4);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8) inset;
+    margin-right: 8px;
+    cursor: pointer;
 }
 
 .dots span.active {
-  box-shadow: 0 0 0 2px rgba(7, 17, 27, 0.4) inset;
-  background: #fff;
+    box-shadow: 0 0 0 2px rgba(7, 17, 27, 0.4) inset;
+    background: #fff;
 }
 
 /* footer */
 * {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  height: 170px;
-  background-color: #333333;
-  color: #ffffff;
-  font-size: 15px;
-  font-family: "微软雅黑";
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 170px;
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: "微软雅黑";
 }
 
 .footer .link .com {
-  display: inline-block;
-  margin: 30px 30px 30px 72px;
-  text-align: center;
-  height: 90px;
-  width: 150px;
+    display: inline-block;
+    margin: 30px 30px 30px 72px;
+    text-align: center;
+    height: 90px;
+    width: 150px;
 }
 
 .footer .link .com img {
-  height: 85px;
-  width: 150px;
+    height: 85px;
+    width: 150px;
 }
 
 .footer .text {
-  float: left;
-  height: 150px;
-  line-height: 150px;
-  margin-left: 150px;
-  font-weight: bold;
+    float: left;
+    height: 150px;
+    line-height: 150px;
+    margin-left: 150px;
+    font-weight: bold;
 }
 
 .footer .link .com p {
-  margin: 10px 0 10px 0;
+    margin: 10px 0 10px 0;
 }
 
 .footer .msg img {
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
-  float: left;
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    float: left;
 }
 
 .footer .msg .jd {
-  float: left;
-  height: 110px;
-  line-height: 110px;
-  margin-left: 50px;
-  font-weight: bold;
+    float: left;
+    height: 110px;
+    line-height: 110px;
+    margin-left: 50px;
+    font-weight: bold;
 }
 
 .footer .msg .size {
-  height: 40px;
-  width: 200px;
-  line-height: 40px;
-  margin-left: 300px;
+    height: 40px;
+    width: 200px;
+    line-height: 40px;
+    margin-left: 300px;
 }
 
 .footer .msg .emi {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 .footer .msg .pos {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .siz {
-  margin: 40px auto;
-  width: 1200px;
+    margin: 40px auto;
+    width: 1200px;
 }
 
 .right {
-  float: right;
-  line-height: 30px;
+    float: right;
+    line-height: 30px;
 }
 /* 新闻 */
 .news {
-  height: 460px;
-  width: 350px;
-  margin: 30px 0 0 160px;
+    height: 460px;
+    width: 350px;
+    margin: 30px 0 0 160px;
 }
 .news li {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 18px;
-  height: 40px;
-  line-height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
 }
 .news .head a {
-  color: #2870c8;
-  color: 333;
-  font-size: 22px;
-  font-weight: bold;
+    color: #2870c8;
+    color: 333;
+    font-size: 22px;
+    font-weight: bold;
 }
 .news .head {
-  line-height: 26px;
-  border-bottom: solid 2px #2870c8;
-  padding-bottom: 8px;
+    line-height: 26px;
+    border-bottom: solid 2px #2870c8;
+    padding-bottom: 8px;
 }
 .news a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
-
