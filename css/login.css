@@ -2,7 +2,9 @@
     padding: 0;
     margin: 0;
 }
-
+.form-group {
+    margin-left: 60px;
+}
 .login-container {
     height: 600px;
     width: 100%;
