@@ -12,10 +12,11 @@
     width: 180px;
     height: 50px;
     background: rgb(82, 202, 238);
-    border: 10px solid white;
+    border: 5px solid white;
     border-radius: 50px;
     font-size: 14px;
 }
+
 .left-nav ul .li1 {
     font-weight: bold;
     font-size: 14px;
@@ -25,6 +26,7 @@
     border-radius: 50px;
     color: #fff;
 }
+
 .left-nav ul li a {
     text-decoration: none;
     color: black;
@@ -44,11 +46,9 @@
     0% {
         background: #1d84b5;
     }
-
     50% {
         background: #00cecb;
     }
-
     100% {
         background: #1d84b5;
     }
@@ -62,58 +62,76 @@
     text-align: center;
     border-radius: 15px;
 }
+
 .left-nav .search h2 {
     font-size: 18px;
 }
+
 .left-nav .search p {
     float: left;
     font-size: 15px;
 }
+
 .left-nav .search select {
     width: 88px;
     height: 25px;
     line-height: 25px;
 }
+
 .left-nav .search button {
     width: 150px;
     height: 30px;
     cursor: pointer;
 }
+
 .left-nav .search input {
     width: 100px;
     height: 20px;
     line-height: 25px;
 }
+
 .left-nav .search div {
     margin: 20px 0;
 }
-.content {
-    position: relative;
-    top: 100px;
-    left: 400px;
-    height: 1000px;
+
+.td-1 {
+    height: 2000px;
     width: 1000px;
-    background: #f0f8ff;
+    position: relative;
+    left: 400px;
+    background-color: #f0f8ff;
+    padding: 10px;
     border: 2px solid #e1e2e2;
 }
-.content h2,
-.content h3 {
-    text-align: center;
-    margin: 20px 0;
+
+.td-div-1 {
+    position: absolute;
 }
-.content h2 {
-    font-size: 30px;
-}
-.content h3 {
-    background: #d3d3d3;
+
+.td-div-2 {
+    position: absolute;
+    width: 855px;
+    height: 50px;
+    left: 90px;
+    background-color: #d3d3d3;
     border: 1px solid #e1e2e2;
-    width: 600px;
-    margin: 0 auto;
-    line-height: 2em;
-    font-weight: normal;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
 }
-.content p {
-    width: 900px;
-    margin: 25px auto;
-    line-height: 1.5em;
+
+.td-div-img {
+    background-color: #000;
+    position: absolute;
+    top: 200px;
+    height: 400px;
+    width: 640px;
+    left: 180px;
+}
+
+.td-div-3 {
+    position: absolute;
+    top: 650px;
+    width: 855px;
+    left: 80px;
 }
