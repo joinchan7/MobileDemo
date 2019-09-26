@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
     <head>
         <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
-        />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
-        <title>bu ju2</title>
-        <style>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+        <title></title>
+        <style type="text/css">
             * {
                 margin: 0;
                 padding: 0;
             }
+
             html,
             body {
                 height: 100%;
@@ -25,8 +22,11 @@
             .carousel-wrap > .list {
                 list-style: none;
                 overflow: hidden;
+                position: absolute;
             }
-            /* 清除a与li之间的空隙 */
+            .carousel-wrap > .list > li {
+                float: left;
+            }
             .carousel-wrap > .list > li > a,
             .carousel-wrap > .list > li > a > img {
                 display: block;
@@ -34,92 +34,88 @@
             .carousel-wrap > .list > li > a > img {
                 width: 100%;
             }
-            .carousel-wrap > .list > li {
-                float: left;
-            }
         </style>
     </head>
     <body>
         <div id="wrap">
-            <div class="carousel-wrap">
-                <!-- <ul class="list"><li><a href="javascript:;"><img src="img/1.jpg" alt="" /></a></li></ul> -->
-            </div>
+            <div class="carousel-wrap"></div>
         </div>
     </body>
-    <script>
-        // 注意需要添加window.onload
-        window.onload = () => {
+    <script type="text/javascript">
+        window.onload = function() {
+            document.addEventListener('touchstart', function(ev) {
+                ev = ev || event;
+                ev.preventDefault();
+            });
 
-            // document.addEventListener('touchstart', ev => {
-            //     ev = ev || event;
-            //     ev.preventDefault();
-            // });
+            var arr = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/05.jpg'];
 
-            const arr = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/02.jpg'];
-
+            carousel(arr);
             function carousel(arr) {
-                const carouselWrap = document.querySelector('.carousel-wrap');
+                //布局
+                var carouselWrap = document.querySelector('.carousel-wrap');
                 if (carouselWrap) {
-                    // 布局
-                    const ulNode = document.createElement('ul');
-                    const styleNode = document.createElement('style');
-                    // 给创建的.list添加list属性
+                    var ulNode = document.createElement('ul');
+                    var styleNode = document.createElement('style');
                     ulNode.classList.add('list');
-                    for (let i = 0; i < arr.length; i++) {
-                        ulNode.innerHTML += '<li><a href="javascript:;"><img src="' + arr[i] + '" alt="" /></a></li>';
+                    for (var i = 0; i < arr.length; i++) {
+                        ulNode.innerHTML += '<li><a href="javascript:;"><img src="' + arr[i] + '"/></a></li>';
                     }
                     styleNode.innerHTML =
-                        '.carousel-wrap > .list > li {width: ' +
+                        '.carousel-wrap > .list > li{width: ' +
                         (1 / arr.length) * 100 +
-                        '%;}.carousel-wrap > .list {width: ' +
-                        arr.length * 100 +
-                        '%;}';
+                        '%;}.carousel-wrap > .list{width: ' +
+                        arr.length +
+                        '00%}';
                     carouselWrap.appendChild(ulNode);
                     document.head.appendChild(styleNode);
 
-                    const imgNode = document.querySelector('.carousel-wrap > .list > li > a > img');
-                    setTimeout(() => {
-                        carouselWrap.style.height = imgNode.offsetHeight + 'px';
+                    var imgNodes = document.querySelector('.carousel-wrap > .list > li > a >img');
+                    setTimeout(function() {
+                        carouselWrap.style.height = imgNodes.offsetHeight + 'px';
                     }, 100);
 
-                    // 滑屏
-                    /* 
-                        1.拿到元素开始的位置
-                        2.拿到手指开始点击的位置
-                        3.拿到手指move距离
-                        4.将手指移动的距离加给元素
-                     */
-                    let startX = 0;
+                    /*滑屏
+                     * 	1.拿到元素一开始的位置
+                     * 	2.拿到手指一开始点击的位置
+                     * 	3.拿到手指move的实时距离
+                     * 	4.将手指移动的距离加给元素
+                     * */
 
-                    let elementX = 0;
-                    let index=0;
-                    let disX = 0;
-                    carouselWrap.addEventListener('touchstart', ev => {
+                    //手指一开始的位置
+                    var startX = 0;
+                    //元素一开始的位置
+                    var elementX = 0;
+                    //图片的下标
+                    var index = 0;
+                    var disX = 0;
+                    carouselWrap.addEventListener('touchstart', function(ev) {
                         ev = ev || event;
-                        const TouchC = ev.changedTouches[0];
+                        var TouchC = ev.changedTouches[0];
                         startX = TouchC.clientX;
                         elementX = ulNode.offsetLeft;
                     });
-
-                    carouselWrap.addEventListener('touchmove', ev => {
+                    carouselWrap.addEventListener('touchmove', function(ev) {
                         ev = ev || event;
-                        const TouchC = ev.changedTouches[0];
-                        const nowX = TouchC.clientX;
+                        var TouchC = ev.changedTouches[0];
+                        var nowX = TouchC.clientX;
                         disX = nowX - startX;
                         ulNode.style.left = elementX + disX + 'px';
                     });
-                    carouselWrap.addEventListener('touchend', ev => {
-                        ev=ev||event;
-                        if(disX>0){
+                    carouselWrap.addEventListener('touchend', function(ev) {
+                        ev = ev || event;
+
+                        if (disX > 0) {
+                            //向右滑
                             index--;
-                        }else{
+                        } else if (disX < 0) {
+                            //向左滑
                             index++;
                         }
-                        ulNode.style.left=-index*(document.documentElement.clientWidth)+'px';
+                        ulNode.style.left = -index * document.documentElement.clientWidth + 'px';
                     });
                 }
             }
-            carousel(arr);
         };
     </script>
 </html>
