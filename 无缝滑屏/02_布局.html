@@ -7,7 +7,7 @@
             content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
         />
         <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
-        <title>bu ju</title>
+        <title>bu ju2</title>
         <style>
             * {
                 margin: 0;
@@ -24,74 +24,99 @@
             }
             .carousel-wrap > .list {
                 list-style: none;
+                overflow: hidden;
             }
             /* 清除a与li之间的空隙 */
             .carousel-wrap > .list > li > a,
-            .carousel-wrap > .list > li a > img {
+            .carousel-wrap > .list > li > a > img {
                 display: block;
             }
             .carousel-wrap > .list > li > a > img {
-                width: 20%;
+                width: 100%;
             }
-            .carousel-wrap > .list {
+            .carousel-wrap > .list > li {
                 float: left;
-                width: 500%;
-                /* 清除浮动 */
-                overflow: hidden;
             }
         </style>
     </head>
     <body>
         <div id="wrap">
             <div class="carousel-wrap">
-                <!-- <ul class="list">
-                    <li>
-                        <a href="javascript:;">
-                            <img src="img/1.jpg" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <img src="img/2.jpg" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <img src="img/3.jpg" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <img src="img/4.jpg" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <img src="img/2.jpg" alt="" />
-                        </a>
-                    </li>
-                </ul> -->
+                <!-- <ul class="list"><li><a href="javascript:;"><img src="img/1.jpg" alt="" /></a></li></ul> -->
             </div>
         </div>
     </body>
     <script>
         // 注意需要添加window.onload
         window.onload = () => {
-            document.addEventListener('touchstart', ev => {
-                ev = ev || event;
-                ev.preventDefault();
-            });
-            const arr = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg', 'img/2.jpg'];
+
+            // document.addEventListener('touchstart', ev => {
+            //     ev = ev || event;
+            //     ev.preventDefault();
+            // });
+
+            const arr = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/02.jpg'];
+
             function carousel(arr) {
                 const carouselWrap = document.querySelector('.carousel-wrap');
                 if (carouselWrap) {
+                    // 布局
                     const ulNode = document.createElement('ul');
+                    const styleNode = document.createElement('style');
                     // 给创建的.list添加list属性
                     ulNode.classList.add('list');
                     for (let i = 0; i < arr.length; i++) {
                         ulNode.innerHTML += '<li><a href="javascript:;"><img src="' + arr[i] + '" alt="" /></a></li>';
                     }
+                    styleNode.innerHTML =
+                        '.carousel-wrap > .list > li {width: ' +
+                        (1 / arr.length) * 100 +
+                        '%;}.carousel-wrap > .list {width: ' +
+                        arr.length * 100 +
+                        '%;}';
                     carouselWrap.appendChild(ulNode);
+                    document.head.appendChild(styleNode);
+
+                    const imgNode = document.querySelector('.carousel-wrap > .list > li > a > img');
+                    setTimeout(() => {
+                        carouselWrap.style.height = imgNode.offsetHeight + 'px';
+                    }, 100);
+
+                    // 滑屏
+                    /* 
+                        1.拿到元素开始的位置
+                        2.拿到手指开始点击的位置
+                        3.拿到手指move距离
+                        4.将手指移动的距离加给元素
+                     */
+                    let startX = 0;
+
+                    let elementX = 0;
+                    let index=0;
+                    let disX = 0;
+                    carouselWrap.addEventListener('touchstart', ev => {
+                        ev = ev || event;
+                        const TouchC = ev.changedTouches[0];
+                        startX = TouchC.clientX;
+                        elementX = ulNode.offsetLeft;
+                    });
+
+                    carouselWrap.addEventListener('touchmove', ev => {
+                        ev = ev || event;
+                        const TouchC = ev.changedTouches[0];
+                        const nowX = TouchC.clientX;
+                        disX = nowX - startX;
+                        ulNode.style.left = elementX + disX + 'px';
+                    });
+                    carouselWrap.addEventListener('touchend', ev => {
+                        ev=ev||event;
+                        if(disX>0){
+                            index--;
+                        }else{
+                            index++;
+                        }
+                        ulNode.style.left=-index*(document.documentElement.clientWidth)+'px';
+                    });
                 }
             }
             carousel(arr);
