@@ -1,4 +1,4 @@
-# mytest
+# myTest
 
 Just a test.
 
