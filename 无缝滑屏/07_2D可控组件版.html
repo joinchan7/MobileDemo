@@ -7,7 +7,7 @@
             content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
         />
         <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
-        <title>定位版</title>
+        <title>2D组件版</title>
         <style>
             * {
                 margin: 0;
@@ -48,7 +48,7 @@
                 text-align: center;
                 z-index: 1;
             }
-            .carousel-wrap > .points-wrap span {
+            .carousel-wrap > .points-wrap > span {
                 display: inline-block;
                 height: 10px;
                 width: 10px;
@@ -56,32 +56,42 @@
                 background: #bfa;
                 margin-left: 5px;
             }
-            .carousel-wrap > .points-wrap span.active {
+            .carousel-wrap > .points-wrap > span.active {
                 background: #ebc;
             }
         </style>
     </head>
     <body>
         <div id="wrap">
-            <div class="carousel-wrap">
+            <div class="carousel-wrap" needCarousel>
                 <!-- <ul class="list"><li><a href="javascript:;"><img src="img/1.jpg" alt="" /></a></li></ul> -->
                 <div class="points-wrap"></div>
             </div>
         </div>
     </body>
+    <script src="js/transform.js"></script>
     <script>
         // 注意需要添加window.onload
         window.onload = () => {
-            // document.addEventListener('touchstart', ev => {
-            //     ev = ev || event;
-            //     ev.preventDefault();
-            // });
-
+            document.addEventListener('touchstart', ev => {
+                ev = ev || event;
+                ev.preventDefault();
+            });
             const arr = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/02.jpg'];
 
             function carousel(arr) {
                 const carouselWrap = document.querySelector('.carousel-wrap');
                 if (carouselWrap) {
+                    /* 无缝 */
+                    const pointsLength = arr.length;
+                    // 判断是否存在needCarousel
+
+                    // 或者：let needCarousel = carouselWrap.getAttribute('needCarousel');
+                    // needCarousel = needCarousel === null ? false : true;
+                    if (carouselWrap.hasAttribute('needCarousel')) {
+                        arr = arr.concat(arr);
+                    }
+
                     /* 布局 */
                     const ulNode = document.createElement('ul');
                     const styleNode = document.createElement('style');
@@ -106,7 +116,7 @@
                     /* 小圆点 */
                     const pointsWrap = document.querySelector('.carousel-wrap > .points-wrap');
                     if (pointsWrap) {
-                        for (let i = 0; i < arr.length; i++) {
+                        for (let i = 0; i < pointsLength; i++) {
                             if (i === 0) {
                                 pointsWrap.innerHTML += '<span class="active"></span>';
                             } else {
@@ -126,14 +136,30 @@
                      */
                     let startX = 0;
                     let elementX = 0;
+                    // 用translateX记录偏移量
+                    // let translateX = 0;
                     // 处理偏移量：抽象图片索引
                     carouselWrap.addEventListener('touchstart', ev => {
                         ev = ev || event;
                         const TouchC = ev.changedTouches[0];
                         // 清除transition
                         ulNode.style.transition = 'none';
+
+                        /* 无缝 */
+                        // index:ul的位置
+                        if (carouselWrap.hasAttribute('needCarousel')) {
+                            let index = cg.css(ulNode, 'translateX') / document.documentElement.clientWidth;
+                            if (-index === 0) {
+                                index = -pointsLength;
+                            }
+                            if (-index === arr.length - 1) {
+                                index = -(pointsLength - 1);
+                            }
+                            cg.css(ulNode, 'translateX', index * document.documentElement.clientWidth);
+                        }
+
                         startX = TouchC.clientX;
-                        elementX = ulNode.offsetLeft;
+                        elementX = cg.css(ulNode, 'translateX');
                     });
 
                     carouselWrap.addEventListener('touchmove', ev => {
@@ -141,12 +167,13 @@
                         const TouchC = ev.changedTouches[0];
                         const nowX = TouchC.clientX;
                         const disX = nowX - startX;
-                        ulNode.style.left = elementX + disX + 'px';
+                        cg.css(ulNode, 'translateX', elementX + disX);
                     });
+
                     carouselWrap.addEventListener('touchend', ev => {
                         ev = ev || event;
                         // ul相对于屏幕的的实时位置，index为图片索引的相反数
-                        let index = ulNode.offsetLeft / document.documentElement.clientWidth;
+                        let index = cg.css(ulNode, 'translateX') / document.documentElement.clientWidth;
                         // 1/2跳转
                         index = Math.round(index);
                         // 滑动超出控制
@@ -160,10 +187,10 @@
                         for (let i = 0; i < pointsSpan.length; i++) {
                             pointsSpan[i].classList.remove('active');
                         }
-                        pointsSpan[-index].classList.add('active');
+                        pointsSpan[-index % pointsLength].classList.add('active');
                         // 加切换过渡
-                        ulNode.style.transition = '.5s left';
-                        ulNode.style.left = index * document.documentElement.clientWidth + 'px';
+                        ulNode.style.transition = '.5s transform';
+                        cg.css(ulNode, 'translateX', index * document.documentElement.clientWidth);
                     });
                 }
             }

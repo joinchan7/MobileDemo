@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+        <title>2D组件版</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            html,
+            body {
+                height: 100%;
+                overflow: hidden;
+            }
+            #wrap {
+                height: 100%;
+                overflow: hidden;
+            }
+            .carousel-wrap {
+                position: relative;
+            }
+            .carousel-wrap > .list {
+                list-style: none;
+                overflow: hidden;
+                position: absolute;
+            }
+            /* 清除a与li之间的空隙 */
+            .carousel-wrap > .list > li > a,
+            .carousel-wrap > .list > li > a > img {
+                display: block;
+                cursor: default;
+            }
+            .carousel-wrap > .list > li > a > img {
+                width: 100%;
+            }
+            .carousel-wrap > .list > li {
+                float: left;
+            }
+            .carousel-wrap > .points-wrap {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                z-index: 1;
+            }
+            .carousel-wrap > .points-wrap > span {
+                display: inline-block;
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                background: #bfa;
+                margin: 0 3px;
+            }
+            .carousel-wrap > .points-wrap > span.active {
+                background: #ebc;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="carousel-wrap" needCarousel needAuto>
+                <!-- <ul class="list"><li><a href="javascript:;"><img src="img/1.jpg" alt="" /></a></li></ul> -->
+                <div class="points-wrap"></div>
+            </div>
+        </div>
+    </body>
+    <script src="js/transform.js"></script>
+    <script src="js/carousel.js"></script>
+    <script>
+        // 注意需要添加window.onload
+        window.onload = () => {
+            document.addEventListener('touchstart', ev => {
+                ev = ev || event;
+                ev.preventDefault();
+            });
+            const arr = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/02.jpg'];
+            cg.carousel(arr);
+        };
+    </script>
+</html>

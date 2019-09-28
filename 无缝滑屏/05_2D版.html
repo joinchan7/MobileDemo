@@ -7,7 +7,7 @@
             content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
         />
         <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
-        <title>定位版</title>
+        <title>2D版</title>
         <style>
             * {
                 margin: 0;
@@ -72,10 +72,10 @@
     <script>
         // 注意需要添加window.onload
         window.onload = () => {
-            // document.addEventListener('touchstart', ev => {
-            //     ev = ev || event;
-            //     ev.preventDefault();
-            // });
+            document.addEventListener('touchstart', ev => {
+                ev = ev || event;
+                ev.preventDefault();
+            });
 
             const arr = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg', 'img/02.jpg'];
 
@@ -126,6 +126,8 @@
                      */
                     let startX = 0;
                     let elementX = 0;
+                    // 用translateX记录偏移量
+                    let translateX = 0;
                     // 处理偏移量：抽象图片索引
                     carouselWrap.addEventListener('touchstart', ev => {
                         ev = ev || event;
@@ -133,7 +135,7 @@
                         // 清除transition
                         ulNode.style.transition = 'none';
                         startX = TouchC.clientX;
-                        elementX = ulNode.offsetLeft;
+                        elementX = translateX;
                     });
 
                     carouselWrap.addEventListener('touchmove', ev => {
@@ -141,12 +143,13 @@
                         const TouchC = ev.changedTouches[0];
                         const nowX = TouchC.clientX;
                         const disX = nowX - startX;
-                        ulNode.style.left = elementX + disX + 'px';
+                        translateX = elementX + disX;
+                        ulNode.style.transform = 'translateX(' + translateX + 'px )';
                     });
                     carouselWrap.addEventListener('touchend', ev => {
                         ev = ev || event;
                         // ul相对于屏幕的的实时位置，index为图片索引的相反数
-                        let index = ulNode.offsetLeft / document.documentElement.clientWidth;
+                        let index = translateX / document.documentElement.clientWidth;
                         // 1/2跳转
                         index = Math.round(index);
                         // 滑动超出控制
@@ -162,8 +165,10 @@
                         }
                         pointsSpan[-index].classList.add('active');
                         // 加切换过渡
-                        ulNode.style.transition = '.5s left';
-                        ulNode.style.left = index * document.documentElement.clientWidth + 'px';
+                        ulNode.style.transition = '.5s transform';
+                        translateX = index * document.documentElement.clientWidth;
+
+                        ulNode.style.transform = 'translateX(' + translateX + 'px)';
                     });
                 }
             }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+        <title>transform</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            #test {
+                width: 100px;
+                height: 100px;
+                background: #bfa;
+                /* transform: scale(2) translateX(100px); */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="test"></div>
+    </body>
+    <script src="js/transform.js"></script>
+    <script>
+        // css函数对transform值进行读写，不覆盖（使用对象）
+        const test = document.querySelector('#test');
+
+        cg.css(test, 'translateX', 100);
+        cg.css(test, 'translateX', 300);
+        cg.css(test, 'scale', 2);
+        console.log(cg.css(test, 'translateX'));
+
+        // console.log(css(test, 'translateX'));
+    </script>
+</html>
